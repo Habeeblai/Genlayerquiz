@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenQuiz - Test Your GenLayer Knowledge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen active">
+        <div class="container">
+            <img src="assets/genlayer-logo.png" alt="GenLayer Logo" class="logo">
+            <h1 class="hero-title">GenLayer Quiz</h1>
+            <p class="hero-subtitle">Test your knowledge about GenLayer</p>
+            <p class="description">
+                Welcome to GenQuiz! Challenge yourself with questions about GenLayer's innovative blockchain technology, 
+                community updates, and technical concepts. Progress through 50 levels of increasing difficulty and 
+                earn your place on the leaderboard!
+            </p>
+            <div class="action-cards">
+                <div class="card" onclick="showRegistration()">
+                    <div class="card-icon">🎮</div>
+                    <h3>Start Quiz</h3>
+                    <p>Begin your journey</p>
+                </div>
+                <div class="card" onclick="showLeaderboard()">
+                    <div class="card-icon">🏆</div>
+                    <h3>Leaderboard</h3>
+                    <p>View top players</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Screen -->
+    <div id="registration-screen" class="screen">
+        <div class="container">
+            <h2>Enter Your Details</h2>
+            <p class="hint">Please use your Discord username for the leaderboard</p>
+            <form id="registration-form">
+                <input type="text" id="username" placeholder="Discord Username" required>
+                <button type="submit" class="btn-primary">Start Quiz</button>
+                <button type="button" class="btn-secondary" onclick="showHome()">Back</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen">
+        <div class="quiz-header">
+            <div class="progress-info">
+                <span id="level-display">Level 1</span>
+                <span id="question-counter">Question 1/10</span>
+            </div>
+            <div class="timer-container">
+                <div class="timer" id="timer">20</div>
+            </div>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="question-card">
+                <h2 id="question-text">Loading question...</h2>
+                <div id="options-container" class="options">
+                    <!-- Options will be dynamically inserted -->
+                </div>
+            </div>
+            <img src="assets/mochi-neutral.png" alt="Mochi" class="mascot" id="mochi-mascot">
+        </div>
+    </div>
+
+    <!-- Level Complete Screen -->
+    <div id="level-complete-screen" class="screen">
+        <div class="container">
+            <img src="assets/mochi-happy.png" alt="Happy Mochi" class="mascot-large" id="result-mascot">
+            <h2 id="result-title">Level Complete!</h2>
+            <div class="score-display">
+                <p>Score: <span id="level-score">0/10</span></p>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="nextLevel()">Next Level</button>
+                <button class="btn-secondary" onclick="reviewAnswers()">Review Answers</button>
+                <button class="btn-secondary" onclick="showHome()">Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Screen -->
+    <div id="review-screen" class="screen">
+        <div class="container">
+            <h2>Review Answers - Level <span id="review-level">1</span></h2>
+            <div id="review-container">
+                <!-- Review content will be dynamically inserted -->
+            </div>
+            <button class="btn-primary" onclick="closeReview()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboard-screen" class="screen">
+        <div class="container">
+            <h2>🏆 Leaderboard</h2>
+            <div id="leaderboard-container" class="leaderboard">
+                <!-- Leaderboard will be dynamically inserted -->
+            </div>
+            <button class="btn-secondary" onclick="showHome()">Back to Home</button>
+        </div>
+    </div>
+
+    <!-- Completion Badge Screen -->
+    <div id="badge-screen" class="screen">
+        <div class="container">
+            <div class="badge-celebration">
+                <h1>🎉 Congratulations! 🎉</h1>
+                <div class="badge-display">
+                    <div class="badge">
+                        <span class="badge-icon">🏅</span>
+                        <p>GenLayer Master</p>
+                    </div>
+                </div>
+                <p>You've completed all 50 levels!</p>
+                <button class="btn-primary" onclick="showLeaderboard()">View Leaderboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://discord.gg/genlayer" target="_blank">
+                <img src="assets/discord-icon.svg" alt="Discord">
+            </a>
+            <a href="https://twitter.com/genlayer" target="_blank">
+                <img src="assets/x-icon.svg" alt="X (Twitter)">
+            </a>
+        </div>
+        <p>Built with love for GenLayer community 💜</p>
+    </footer>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
